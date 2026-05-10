@@ -3,10 +3,10 @@
 This repository contains complete Bash Scripting practice for DevOps.
 
 ## Contents
-- Notes (PDF)
+- All step by step Notes
 - Scripts (practical bash scripts)
 - Linux Commands
-- Screenshots of AWS & execution
+- Screenshots of putty and AWS execution
 
 ## Projects
 - Nginx Automation
@@ -16,4 +16,4 @@ This repository contains complete Bash Scripting practice for DevOps.
 - Docker Deployment
 
 ## Purpose
-To demonstrate real DevOps automation using Bash scripting on AWS EC2.
+To demonstrate real DevOps automation using Bash scripting on AWS EC2 ubuntu.
