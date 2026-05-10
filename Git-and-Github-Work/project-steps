@@ -1,0 +1,118 @@
+ 📁Project: Git Practical on AWS Servers
+________________________________________
+🧠 Project Overview
+Is project me hum:
+•	AWS pe 2 EC2 servers launch karenge
+•	PuTTY se connect karenge
+•	Dono servers par Git install aur configure karenge
+•	Same repo me files create karke:
+o	push
+o	pull
+o	commit
+o	branch
+•	Advanced commands practice:
+o	merge
+o	stash
+o	reset
+o	revert
+o	clone
+o	log
+________________________________________
+🛠️ Tools Used
+•	AWS EC2
+•	PuTTY
+•	Git
+•	GitHub
+________________________________________
+🚀 STEP 1 — Launch 2 EC2 Instances
+•	AWS Console → EC2 → Launch Instance
+•	Name:
+o	server-1
+o	server-2
+•	OS: Ubuntu
+•	Key pair download karo
+________________________________________
+🔗 STEP 2 — Connect via PuTTY
+•	PuTTY open karo
+•	Public IP enter karo
+•	.ppk key use karo
+________________________________________
+📦 STEP 3 — Install Git (Both Servers)
+sudo apt update
+sudo apt install git -y
+Check:
+git --version
+________________________________________
+⚙️ STEP 4 — Git Setup (Both Servers)
+git config --global user.name "Shan Zafar"
+git config --global user.email "your-email@gmail.com"
+Check:
+git config --list
+________________________________________
+📁 STEP 5 — Create Project Folder
+mkdir devops-project
+cd devops-project
+git init
+________________________________________
+📄 STEP 6 — Create Files
+touch file1.txt
+echo "Hello from Server 1" > file1.txt
+________________________________________
+🔗 STEP 7 — Connect to GitHub Repo
+git remote add origin https://github.com/your-username/your-repo.git
+________________________________________
+📤 STEP 8 — Push Code
+git add .
+git commit -m "First commit from server 1"
+git push -u origin main
+________________________________________
+📥 STEP 9 — Pull on Server 2
+Server 2 par:
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+________________________________________
+🔁 STEP 10 — Make Changes & Push/Pull
+Server 2:
+echo "Update from Server 2" >> file1.txt
+git add .
+git commit -m "Update from server 2"
+git push
+Server 1:
+git pull
+________________________________________
+🌿 STEP 11 — Branch Practice
+git branch feature-branch
+git checkout feature-branch
+Change file:
+echo "Feature work" >> file1.txt
+git add .
+git commit -m "Feature added"
+git push origin feature-branch
+________________________________________
+🔀 STEP 12 — Git Merge
+git checkout main
+git merge feature-branch
+________________________________________
+📦 STEP 13 — Git Stash
+echo "Temp change" >> file1.txt
+git stash
+Restore:
+git stash pop
+________________________________________
+⚠️ STEP 14 — Git Reset
+git log
+git reset --hard HEAD~1
+________________________________________
+🔄 STEP 15 — Git Revert
+git log
+git revert commit-id
+________________________________________
+📥 STEP 16 — Git Clone
+git clone https://github.com/your-username/your-repo.git
+________________________________________
+📜 STEP 17 — Git Log
+git log
+Short:
+git log --oneline
+________________________________________
+

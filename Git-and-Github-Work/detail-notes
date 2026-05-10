@@ -1,0 +1,157 @@
+Git & Github
+Lecture 11: Introduction to Git and Source Code Management
+Concepts Covered
+1.	What is Source Code Management (SCM)?
+2.	Centralized Version Control System (CVCS) vs Distributed Version Control System (DVCS)
+3.	What is Git
+Explanation
+Source Code Management helps developers track and manage code changes. Git is a powerful tool used for SCM.
+Roman Urdu:
+Source Code Managment developers ko allow karta hai ke wo code changes track, manage aur control kar saken. Git ek bohot powerful tool hai jo SCM ke liye use hota hai.
+CVCS
+Central repository used; example: SVN
+Roman Urdu:
+CVCS mein sirf aik central server hota hai jahan sara code hota hai, jaise SVN.
+DVCS
+Each developer has a full copy; example: Git
+Roman Urdu:
+DVCS mein har developer ke paas complete repository ki copy hoti hai, jaise Git.
+Why Use Git?
+•	Tracks changes
+•	Enables collaboration
+•	Open-source and distributed
+Roman Urdu:
+Git is liye use hota hai kyun ke:
+•	har change ka record rakhta hai
+•	team ke sath kaam asaan banata hai
+•	open-source hai
+•	distributed system hai (safe & fast)
+________________________________________
+Lecture 12: Git Stages, Setup, and Key Commands
+Concepts Covered
+1.	Three Git Stages: Workspace, Staging Area, Local Repository
+2.	Commands: git add, git commit, git push, git pull, git branch
+3.	Setup Procedure for Git
+4.	Git Terminology
+5.	Advantages of Git
+Concept 1: Three Git Stages
+Workspace
+Where you actually write or edit files.
+Roman Urdu:
+Workspace wo jagah hoti hai jahan hum code likhte ya edit karte hain.
+Staging Area
+Temporarily stores changes you want to include in the next commit.
+Roman Urdu:
+Staging area temporary jagah hoti hai jahan hum selected changes rakhte hain jo commit hone wale hotay hain.
+Local Repository
+Stores the final committed changes permanently.
+Roman Urdu:
+Local repository mein final commit permanently save hota hai.
+Concept 2: Common Git Commands
+Command — Purpose
+git add — Moves changes from workspace → staging area
+git commit — Saves staged changes
+git push — Sends commits to GitHub
+git pull — Gets changes from GitHub
+git branch — Creates/switches branches
+Roman Urdu:
+Ye commands code ko ek stage se doosri stage tak le jane ke liye use hoti hain.
+Concept 3: Git Setup
+git --version
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --list
+Roman Urdu:
+Is setup se Git ko pata chalta hai ke commit kis ne ki hai.
+Concept 4: Git Terminology
+Term — Explanation
+Repository — Project folder
+Server — Remote machine like GitHub
+Workspace — Working directory
+Staging Area — Temporary holding area
+Commit — Snapshot of changes
+Commit ID — Unique commit number
+Tag — Version number (name of commit)
+Branch — Separate line of development
+Roman Urdu:
+Ye terms Git ki basic language hain jo interview mein poochi jati hain.
+Concept 5: Advantages of Git
+•	Tracks history
+•	Team collaboration
+•	Branching & merging
+•	Offline work
+•	Fast & reliable
+Roman Urdu:
+Git fast hai, reliable hai aur DevOps ke liye perfect tool hai.
+________________________________________
+Lecture 13: Installing Git on AWS Linux Machine
+Practical Procedure
+1.	Create two Linux EC2 instances in different AWS regions
+2.	Install Git
+sudo yum install git -y
+3.	Create GitHub account
+Roman Urdu:
+Is lecture ka purpose ye tha ke hum distributed Git setup ko practically samjhen.
+________________________________________
+Lecture 14: Git Commit, Push, Pull and .gitignore
+Concepts and Commands
+git init
+touch file.txt
+git add file.txt
+git commit -m "message"
+git push -u origin master
+git pull origin master
+Roman Urdu:
+Ye commands daily DevOps workflow ka part hoti hain.
+.gitignore
+Used to exclude files from Git tracking.
+Roman Urdu:
+.gitignore sensitive ya unnecessary files ko repo mein jane se rokta hai.
+Example:
+.log
+temp.txt
+mysecrets/
+________________________________________
+Lecture 15: Git Branch, Merge, Stash, and Reset
+What is a Branch?
+A separate working area for features.
+Roman Urdu:
+Branch ek alag working line hoti hai taake main code safe rahe.
+Git Branch Commands
+git branch branch1
+git checkout branch1
+git checkout -b branch1
+Git Merge
+git checkout master
+git merge branch1
+Roman Urdu:
+Merge se feature branch ka code main branch ke sath join hota hai.
+Git Stash
+________________________________________
+Lecture 16: Git Revert, Tags, GitHub Clone, GitLab
+Git Revert
+git revert
+Roman Urdu:
+Revert safe hai kyun ke new commit banata hai, history change nahi karta.
+Git Tags
+git tag v1.0
+git tag -d v1.0
+Roman Urdu:
+Tags releases mark karne ke liye use hotay hain.
+Git Clone
+git clone
+Roman Urdu:
+Clone remote repository ko local system pe copy karta hai.
+Git Revert vs Reset
+Feature — Revert — Reset
+Safe for sharing — Yes — No
+History change — No — Yes
+Use case — Production — Local
+Roman Urdu:
+Interview rule: Reset local ke liye, Revert production ke liye
+Additional Git Commands
+git log
+Roman Urdu:
+Ye commands debugging aur history check karne ke liye use hoti hain.
+________________________________________
+
