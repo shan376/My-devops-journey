@@ -1,0 +1,13 @@
+Basic Commands (System + Navigation)
+pwd                         # current path
+ls                             # list files
+ls -l                          # details
+ls -a                         # hidden files
+cd dir                      # enter directory
+cd ..                         # back
+cd ~                        # home
+tree                         # folder structure (install: apt install tree)
+hostname                # system name
+cat /etc/os-release   # OS info
+which command     # command path
+history                    # commands history

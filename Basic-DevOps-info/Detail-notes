@@ -1,0 +1,84 @@
+ DevOps 
+🔹 DevOps Kya Hai?
+DevOps ek concept + process hai jisme Development (Dev) aur Operations (Ops) team mil kar kaam karti hain taake software fast, stable aur efficient tareeke se release ho.
+👉 Simple line (INTERVIEW GOLD):
+DevOps is a practice that combines development and operations to deliver software faster with better quality.
+🔹 Dev + Ops Samajh Lo
+•	Dev (Development): Code likhna (developers)
+•	Ops (Operations): Server, deployment, infrastructure manage karna
+👉 Small company:
+•	Same log dono kaam kar lete hain
+👉 Large company:
+•	Alag departments hote hain (Dev team + Ops team)
+🔹 Real Problem (Before DevOps)
+•	Dev: “Code sahi hai”
+•	Ops: “Server issue hai”
+❌ Blame game start
+👉 DevOps Solution:
+✔ Dono mil kar kaam
+✔ Issue fast solve
+✔ System stable
+🔹 DevOps ke Benefits (Interview Important)
+•	⚡ Speed → fast deployment
+•	🤝 Collaboration → teamwork improve
+•	📈 Productivity → zyada kaam kam time me
+•	🎯 Quality → bug-free product
+•	⚖ Load handling → better performance
+🔹 DevOps Tools (Yaad rakhna)
+•	Git → code manage
+•	Jenkins → automation
+•	Docker → containerization
+•	Kubernetes → scaling
+•	Ansible → automation
+•	Linux → server base
+👉 Interview Tip:
+DevOps tools automation ke liye use hotay hain.
+🔁 DevOps Lifecycle (Step by Step)
+🔹 Dev Phase
+1.	Plan → kya banana hai
+2.	Develop → code likhna
+3.	Build → code compile (Maven etc.)
+4.	Test → bugs check
+🔹 Ops Phase
+5.	Release → ready for deploy
+6.	Deploy → server pe daalna
+7.	Operate → run/manage system
+8.	Monitor → performance check
+👉 Short Trick:
+👉 Plan → Code → Build → Test → Release → Deploy → Operate → Monitor
+________________________________________
+🔁 CI/CD Stages
+1. Version Control
+•	Code versions manage
+•	Tool: Git
+2. Continuous Integration (CI)
+•	Code compile
+•	Testing
+•	Validation
+•	Tool: Jenkins
+3. Continuous Delivery
+•	Code ready for deploy
+•	Tool: Maven
+4. Continuous Deployment
+•	Production me auto deploy
+•	Tools: AWS, Docker
+👉 Interview Line:
+CI/CD ensures automated building, testing, and deployment of code.
+🤝 DevOps Culture
+•	Collaboration → Dev + Ops saath
+•	Transparency → sab ko visibility
+•	Shared Responsibility → dono zimmedar
+•	Continuous Feedback → improvement
+________________________________________
+🧠 DevOps Mindset
+•	Automation pe focus
+•	Small updates (big changes nahi)
+•	Monitoring zaroori
+•	Always improve system
+________________________________________
+🌍 Real World Examples (Yaad rakhna 🔥)
+•	Netflix → daily deployments
+•	Amazon → automation
+•	Facebook → continuous deployment
+________________________________________
+

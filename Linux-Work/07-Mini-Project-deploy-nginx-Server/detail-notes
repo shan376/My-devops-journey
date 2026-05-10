@@ -1,0 +1,98 @@
+Mini Project — Deploy NGINX Server on AWS EC2
+Ab hum complete practical karain gay step by step.
+Project Goal:
+•	EC2 server launch
+•	NGINX install
+•	Port 80 open
+•	HTML page deploy
+•	Browser mn website open
+Tum already PuTTY mn ho, to ab directly server py kaam karte hain.
+STEP 1 — Check Current User
+PuTTY mn command run karo:
+whoami
+Agar ubuntu ya root aa raha hai to perfect.
+STEP 2 — Update Server
+sudo apt update -y
+Purpose:
+•	Linux packages latest karta hai.
+STEP 3 — Install NGINX
+sudo apt install nginx -y
+STEP 4 — Check NGINX Status
+sudo systemctl status nginx
+Agar green active (running) aa raha hai to nginx chal gaya.
+Exit karne ke liye:
+q
+________________________________________
+STEP 5 — Enable NGINX
+Ye reboot ke baad bhi nginx automatically start karega.
+sudo systemctl enable nginx
+STEP 6 — Open Port 80 in AWS
+Ab browser side ka kaam.
+AWS Console kholo:
+EC2 → Instances → Apna Instance → Security
+Phir:
+Security Groups → Edit inbound rules
+Add Rule:
+Type	Port	Source
+HTTP	80	Anywhere IPv4
+Save Rules.
+STEP 7 — Check Website
+Browser mn ye open karo:
+http://YOUR-PUBLIC-IP
+Example:
+http://13.232.xx.xx
+Agar "Welcome to nginx!" aa gaya to server successfully chal gaya 🎉
+STEP 8 — Deploy Custom HTML Page
+Ab default nginx page remove karte hain.
+NGINX default folder:
+/var/www/html
+Us folder mn jao:
+cd /var/www/html
+STEP 9 — Check Existing Files
+ls
+Tumhe mostly:
+index.nginx-debian.html
+dikhegi.
+STEP 10 — Remove Default Page
+sudo rm index.nginx-debian.html
+STEP 11 — Create New HTML Page
+sudo nano index.html
+Ab ye HTML paste karo:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My DevOps Project</title>
+</head>
+<body>
+
+    <h1>Welcome To My NGINX Server</h1>
+    <h2>Mini DevOps Project Successfully Deployed</h2>
+
+    <p>This website is hosted on AWS EC2 using NGINX.</p>
+
+</body>
+</html>
+STEP 12 — Save File
+Nano editor mn:
+Press:
+CTRL + O
+Enter press karo.
+Phir:
+CTRL + X
+STEP 13 — Restart NGINX
+sudo systemctl restart nginx
+STEP 14 — Open Website Again
+Browser mn:
+http://YOUR-PUBLIC-IP
+Ab tumhari custom HTML website show hogi 🎉
+________________________________________
+Important Commands Revision
+Command	Purpose
+sudo apt update -y	Packages update
+sudo apt install nginx -y	Install nginx
+systemctl status nginx	Check service
+systemctl restart nginx	Restart nginx
+cd /var/www/html	Website folder
+nano index.html	Create/edit webpage
+________________________________________
+

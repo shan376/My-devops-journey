@@ -1,0 +1,178 @@
+Linux for DevOps
+🔹 Linux Kya Hai?
+Linux ek open-source operating system hai jo servers, cloud aur DevOps me use hota hai.
+👉 Interview Line:
+Linux is an open-source OS widely used in servers and DevOps for automation and stability.
+🔹 Short History
+•	Unix → 1970s (base system)
+•	1991 → Linus Torvalds ne Linux banaya
+•	Open-source → free use & modify
+🔹Important of Linux in DevOps
+•	Almost sab tools Linux pe run karte hain
+•	Automation (bash scripting)
+•	Server management
+•	Troubleshooting
+👉 Interview Line:
+Linux is the backbone of DevOps because most tools run on it.
+🔹 Linux Features
+•	Open source
+•	Multi-user
+•	Multi-tasking
+•	Secure
+•	Stable
+•	Powerful CLI
+🔹 Linux vs Windows
+•	Linux → servers / DevOps
+•	Windows → desktop
+👉 One Line:
+Linux is preferred for servers, Windows for desktop. 
+
+________________________________________
+🔹 Basic Concepts
+✅ Case Sensitive
+file.txt ≠ File.txt
+✅ User Types
+•	Regular user → limited
+•	Root user → full access
+sudo su      # root banne ke liye
+whoami       # current user check
+________________________________________
+📂 1. Basic Commands (System + Navigation)
+pwd                         # current path
+ls                             # list files
+ls -l                          # details
+ls -a                         # hidden files
+cd dir                      # enter directory
+cd ..                         # back
+cd ~                        # home
+tree                         # folder structure (install: apt install tree)
+hostname                # system name
+cat /etc/os-release   # OS info
+which command     # command path
+history                    # commands history
+________________________________________
+📁 2. File & Directory Commands
+🔹 File Create & Edit
+touch file.txt        # empty file create karna (fast editor)
+cat > file.txt        # file create + content likhna (overwrite)
+cat file.txt          # file ka content dekhna
+cat >> file.txt       # existing file me content add (append)
+nano file.txt         # easy editor (create/edit file)
+vi file.txt           # advanced editor (create/edit file)
+🔹 File Operations 
+cp a.txt b.txt        # file copy karna
+cp -r dir1 dir2       # directory ko copy karna
+mv a.txt b.txt        # file rename ya move karna
+rm file.txt           # file delete karna
+rmdir folder          # empty folder delete karna
+rm -r folder          # folder + andar ka data delete karna
+🔹 File View 
+less file.txt         # file scroll k sath dekhna
+head file.txt         # first 10 lines dekhna
+tail file.txt         # last 10 lines dekhna
+tail -f file.txt      # live file updates dekhna (logs)
+🔹 Directory Commands
+mkdir devops          # new folder create karna
+________________________________________
+
+🌐 3. Networking Commands
+ip a
+👉 Tumhare system ka IP address aur network info dikhata hai
+💡 (Jaise: server ka address kya hai)
+ping google.com
+👉 Check karta hai internet ya kisi server se connection hai ya nahi
+💡 (Jaise: network chal raha hai ya down hai)
+curl URL
+👉 Kisi website/API se data uthata hai (background me)
+💡 (Jaise: API test karna ya response dekhna)
+wget URL
+👉 Internet se file download karta hai
+💡 (Jaise: software ya script download karna)
+netstat -tulnp
+👉 System pe kaunse ports open hain + kaunsa service chal rahi hai
+💡 (Jaise: nginx port 80 pe run ho raha hai ya nahi)
+ss -lntp
+👉 Same kaam as netstat (modern + fast)
+💡 (Ports aur running services check karna)
+________________________________________
+⚙️ 4. Other Important Commands
+🔹 Package Management
+apt update                      #  system ki package list update karta hai (latest info laata hai)
+apt install package         # koi bhi software install karna (Ubuntu)
+🔹 Services
+systemctl start nginx          # service start karna (nginx chalu)
+systemctl restart nginx       # service restart (issue fix ya reload)
+systemctl status nginx        # service chal rahi hai ya nahi check
+🔹 Processes
+Ps                            # current running processes list
+Top                         # live system usage (CPU, RAM) dekhna                  :for exit q
+Htop                       # top ka advanced + easy version                                : for exit f10
+kill PID                  # normal tareeke se process band karna
+kill -9 PID              # force se process kill karna (jab na rukay)
+🔹 Disk Usage
+Df -h      # system ki total disk space aur free space check
+du -sh     # kisi folder ka size check
+🔹 Logs
+Journalctl                             # system ke logs (history + errors) dekhna
+tail -f /var/log/syslog           # live logs dekhna (real-time updates)
+🔹 Users & Groups
+useradd devuser                                # naya user create
+id username                                      # user verify krna
+passwd devuser                                 # user ka password set
+groupadd devgroup                           # naya group create
+getent group groupname                   # verify group
+gpasswd -a devuser devgroup           # user ko group me add
+🔹 Useful Commands
+echo "text"                                           # text screen pe print karna
+echo "hello" > file.txt                     # create + content add
+echo "hello" >> file.txt             # File me naya content add (append) karega
+grep "word" file                       # file me specific word search
+sort file.txt                               # file ka data sort (A-Z) means File ke data ko line by line arrange
+tar -cvf backup.tar folder/       # folder ka backup (archive) banana
+gzip file.txt                             # file ko compress (size kam) karna
+________________________________________
+ 
+🔐 5. File Permissions
+🔹 Types
+•	r → read
+•	w → write
+•	x → execute
+🔹 Users
+•	Owner
+•	Group
+•	Others
+🔹 Number System
+•	7 = rwx
+•	6 = rw-
+•	5 = r-x
+•	4 = r--
+chmod 755 file.txt
+chmod +x file.sh
+chmod 777 file.txt
+chmod 600 file.txt
+🔹 Ownership
+chown user file.txt
+chown user:group file.txt
+🔹 Check Permissions
+ls -l
+________________________________________
+🛠 6. Troubleshooting Commands
+ High CPU
+top
+ps aux
+ Port Issue
+netstat -tulnp
+ Service Issue
+systemctl status service
+journalctl -u service  # service logs (errors) check
+ Disk Full
+df -h
+du -sh *
+________________________________________
+🚀 7. Mini Project Deploy NGINX Server
+•	EC2 launch
+•	Install nginx
+•	Open port 80
+•	Deploy HTML page
+________________________________________ 
+

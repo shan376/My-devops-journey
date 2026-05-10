@@ -1,0 +1,23 @@
+File Permissions
+🔹 Types
+•	r → read
+•	w → write
+•	x → execute
+🔹 Users
+•	Owner
+•	Group
+•	Others
+🔹 Number System
+•	7 = rwx
+•	6 = rw-
+•	5 = r-x
+•	4 = r--
+chmod 755 file.txt
+chmod +x file.sh
+chmod 777 file.txt
+chmod 600 file.txt
+🔹 Ownership
+chown user file.txt
+chown user:group file.txt
+🔹 Check Permissions
+ls -l

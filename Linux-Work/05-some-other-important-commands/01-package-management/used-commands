@@ -1,0 +1,3 @@
+Package Management
+apt update                      #  system ki package list update karta hai (latest info laata hai)
+apt install package         # koi bhi software install karna (Ubuntu)

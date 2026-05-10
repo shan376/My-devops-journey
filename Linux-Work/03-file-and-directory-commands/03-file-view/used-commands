@@ -1,0 +1,4 @@
+less file.txt         # file scroll k sath dekhna
+head file.txt         # first 10 lines dekhna
+tail file.txt         # last 10 lines dekhna
+tail -f file.txt      # live file updates dekhna (logs)

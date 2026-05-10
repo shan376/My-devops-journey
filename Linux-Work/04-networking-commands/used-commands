@@ -1,0 +1,19 @@
+Networking Commands
+ip a
+👉 Tumhare system ka IP address aur network info dikhata hai
+💡 (Jaise: server ka address kya hai)
+ping google.com
+👉 Check karta hai internet ya kisi server se connection hai ya nahi
+💡 (Jaise: network chal raha hai ya down hai)
+curl URL
+👉 Kisi website/API se data uthata hai (background me)
+💡 (Jaise: API test karna ya response dekhna)
+wget URL
+👉 Internet se file download karta hai
+💡 (Jaise: software ya script download karna)
+netstat -tulnp
+👉 System pe kaunse ports open hain + kaunsa service chal rahi hai
+💡 (Jaise: nginx port 80 pe run ho raha hai ya nahi)
+ss -lntp
+👉 Same kaam as netstat (modern + fast)
+💡 (Ports aur running services check karna)

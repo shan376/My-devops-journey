@@ -1,0 +1,3 @@
+Disk Usage
+Df -h      # system ki total disk space aur free space check
+du -sh     # kisi folder ka size check

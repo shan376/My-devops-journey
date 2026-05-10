@@ -1,0 +1,7 @@
+File Operations 
+cp a.txt b.txt        # file copy karna
+cp -r dir1 dir2       # directory ko copy karna
+mv a.txt b.txt        # file rename ya move karna
+rm file.txt           # file delete karna
+rmdir folder          # empty folder delete karna
+rm -r folder          # folder + andar ka data delete karna

@@ -1,0 +1,3 @@
+Logs
+Journalctl                             # system ke logs (history + errors) dekhna
+tail -f /var/log/syslog           # live logs dekhna (real-time updates)

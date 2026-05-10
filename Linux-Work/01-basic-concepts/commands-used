@@ -1,0 +1,7 @@
+✅ Case Sensitive
+file.txt ≠ File.txt
+✅ User Types
+•	Regular user → limited
+•	Root user → full access
+sudo su      # root banne ke liye
+whoami       # current user check

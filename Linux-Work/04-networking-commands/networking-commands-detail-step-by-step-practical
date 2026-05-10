@@ -1,0 +1,77 @@
+Networking Commands – Step by Step Practical Lab
+ Step 1: Server / Terminal open karo
+ssh ubuntu@your-server-ip
+Ya agar already login ho to directly next step.
+________________________________________
+🌐 1. ip a – IP Address check
+👉 Command run karo:
+ip a
+🔍 Output me kya dekhna hai:
+•	eth0 ya ens33 → network interface
+•	inet → tumhara IP address
+✅ Example:
+inet 172.31.77.115/20
+🎯 Practice Task:
+✔ Apna private IP note karo
+✔ Check karo kitne interfaces hain
+________________________________________
+🌐 2. ping google.com – Network test
+👉 Command:
+ping google.com
+🔍 Output:
+64 bytes from ...
+🧠 Samajh:
+•	Agar reply aa raha hai → internet working ✅
+•	Agar error:
+ping: unknown host
+→ DNS issue ❌
+⛔ Stop karne ke liye:
+CTRL + C
+🎯 Practice Task:
+✔ Google ping karo
+✔ Apne friend ka IP ping try karo
+________________________________________
+🌐 3. curl URL – Data fetch (API test)
+👉 Command:
+curl https://api.github.com
+🔍 Output:
+•	JSON data milega
+🎯 Simple test:
+curl ifconfig.me
+👉 Ye tumhara public IP batata hai
+🎯 Practice Task:
+✔ 2 different URLs try karo
+✔ Public IP note karo
+________________________________________
+🌐 4. wget URL – File download
+👉 Command:
+wget https://example.com
+🔍 Output:
+•	File download ho jayegi
+🎯 Real practice:
+wget https://raw.githubusercontent.com/git/git/master/README.md
+✔ Check file:
+ls
+✔ File open:
+cat README.md
+________________________________________
+🌐 5. netstat -tulnp – Open ports check
+👉 Command:
+sudo netstat -tulnp
+❗ Agar error aaye:
+command not found
+👉 Install karo:
+sudo apt install net-tools -y
+🔍 Output samajh:
+•	:80 → HTTP port
+•	:22 → SSH
+•	PID/Program name → kaunsa service chal raha
+🎯 Practice Task:
+✔ Check karo SSH port open hai (22)
+✔ Agar nginx install hai to 80 check karo
+________________________________________
+🌐 6. ss -lntp – Modern port check
+👉 Command:
+ss -lntp
+🔍 Output:
+•	Same info as netstat but fast

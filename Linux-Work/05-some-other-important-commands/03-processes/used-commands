@@ -1,0 +1,6 @@
+Processes
+Ps                            # current running processes list
+Top                         # live system usage (CPU, RAM) dekhna                  :for exit q
+Htop                       # top ka advanced + easy version                                : for exit f10
+kill PID                  # normal tareeke se process band karna
+kill -9 PID              # force se process kill karna (jab na rukay)

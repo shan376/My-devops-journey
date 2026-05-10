@@ -1,0 +1,4 @@
+Services
+systemctl start nginx          # service start karna (nginx chalu)
+systemctl restart nginx       # service restart (issue fix ya reload)
+systemctl status nginx        # service chal rahi hai ya nahi check

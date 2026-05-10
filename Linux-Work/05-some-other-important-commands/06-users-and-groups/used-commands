@@ -1,0 +1,7 @@
+Users & Groups
+useradd devuser                                # naya user create
+id username                                      # user verify krna
+passwd devuser                                 # user ka password set
+groupadd devgroup                           # naya group create
+getent group groupname                   # verify group
+gpasswd -a devuser devgroup           # user ko group me add

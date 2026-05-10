@@ -1,0 +1,9 @@
+File Create & Edit
+touch file.txt        # empty file create karna (fast editor)
+cat > file.txt        # file create + content likhna (overwrite)
+cat file.txt          # file ka content dekhna
+cat >> file.txt       # existing file me content add (append)
+nano file.txt         # easy editor (create/edit file)
+vi file.txt           # advanced editor (create/edit file)
+🔹 Directory Commands
+mkdir devops          # new folder create karna

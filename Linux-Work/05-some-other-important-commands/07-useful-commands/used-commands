@@ -1,0 +1,8 @@
+Useful Commands
+echo "text"                                           # text screen pe print karna
+echo "hello" > file.txt                     # create + content add
+echo "hello" >> file.txt             # File me naya content add (append) karega
+grep "word" file                       # file me specific word search
+sort file.txt                               # file ka data sort (A-Z) means File ke data ko line by line arrange
+tar -cvf backup.tar folder/       # folder ka backup (archive) banana
+gzip file.txt                             # file ko compress (size kam) karna

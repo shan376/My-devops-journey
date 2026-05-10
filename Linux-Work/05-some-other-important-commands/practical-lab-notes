@@ -1,0 +1,111 @@
+Important Commands (Step-by-Step)
+🟢 STEP 0: Ready check
+whoami
+pwd
+✔ confirm karo tum admin/root ya ubuntu user ho
+________________________________________
+📦 1. PACKAGE MANAGEMENT (apt)
+🔹 Step 1: Update system
+sudo apt update
+🧠 Kya hota hai:
+•	system ko latest software list milti hai
+________________________________________
+🔹 Step 2: Install package (nginx)
+sudo apt install nginx -y
+🔹 Step 3: Check install
+nginx -v
+✔ agar version aa gaya → success
+________________________________________
+⚙️ 2. SERVICES (systemctl)
+🔹 Step 1: Start nginx
+sudo systemctl start nginx
+🔹 Step 2: Check status
+sudo systemctl status nginx
+🟢 Expected:
+•	active (running)
+________________________________________
+🔹 Step 3: Restart service
+sudo systemctl restart nginx
+________________________________________
+🔹 Step 4: Enable (auto start on reboot)
+sudo systemctl enable nginx
+________________________________________
+🧠 3. PROCESSES
+🔹 Step 1: Running processes
+ps
+🔹 Better view:
+ps aux
+________________________________________
+🔹 Live monitoring
+top
+👉 Exit:
+q
+________________________________________
+🔹 Install htop (easy version)
+sudo apt install htop -y
+htop
+👉 Exit:
+F10
+________________________________________
+🔹 Kill process (practice safe way)
+Step 1: find PID
+ps aux | grep nginx
+Step 2: kill process
+kill PID
+Force kill:
+kill -9 PID
+________________________________________
+💾 4. DISK USAGE
+🔹 System disk
+df -h
+________________________________________
+🔹 Folder size
+du -sh /var
+________________________________________
+📜 5. LOGS
+🔹 System logs
+journalctl
+________________________________________
+🔹 Live logs (VERY IMPORTANT DevOps)
+sudo tail -f /var/log/syslog
+👉 Exit:
+CTRL + C
+________________________________________
+👤 6. USERS & GROUPS
+🔹 Create user
+sudo useradd devuser
+🔹 Set password
+sudo passwd devuser
+🔹 Create group
+sudo groupadd devgroup
+🔹 Add user to group
+sudo usermod -aG devgroup devuser
+________________________________________
+🔹 Verify
+id devuser
+________________________________________
+🧰 7. USEFUL COMMANDS
+🔹 Print text
+echo "Hello DevOps"
+________________________________________
+🔹 Create file
+echo "Hello World" > file.txt
+________________________________________
+🔹 Append text
+echo "Second Line" >> file.txt
+________________________________________
+🔹 View file
+cat file.txt
+________________________________________
+🔹 Search word
+grep "Hello" file.txt
+________________________________________
+🔹 Sort file
+sort file.txt
+________________________________________
+🔹 Archive folder
+tar -cvf backup.tar /home/ubuntu
+________________________________________
+🔹 Compress file
+gzip file.txt
+________________________________________
