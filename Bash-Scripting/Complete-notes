@@ -1,0 +1,1163 @@
+Bash Scripting Complete Notes (Roman Urdu) – DevOps Practical Guide
+Introduction
+Bash scripting DevOps engineer ki bohat important skill hai. Real world DevOps me hum servers automate karte hain, monitoring scripts banate hain, deployments automate karte hain aur repetitive tasks ko easy banate hain.
+Bash scripting ka matlab:
+👉 Linux commands ko ek file me likh kar automate kar dena.
+Example:
+•	nginx install automatically
+•	logs backup
+•	disk usage check
+•	Jenkins deployment automation
+•	server health monitoring
+Bash Script Kya Hoti Hai?
+Ek text file hoti hai jisme Linux commands likhi hoti hain.
+Example:
+#!/bin/bash
+
+echo "Hello DevOps"
+Explanation:
+•	#!/bin/bash
+o	Isko shebang kehte hain
+o	System ko batata hai ke bash use karni hai
+•	echo
+o	Output print karta hai
+AWS Free Tier Setup (Practical Environment)
+Hum sari practice AWS EC2 Ubuntu server pe karenge.
+STEP 1 – EC2 Launch
+AWS Console → EC2 → Launch Instance
+Settings:
+•	Ubuntu Server
+•	t2.micro
+•	Allow SSH
+•	Allow HTTP
+Key pair download karo.
+STEP 2 – Server Connect
+Linux/Mac:
+ssh -i key.pem ubuntu@PUBLIC-IP
+Windows:
+•	PuTTY use karo
+STEP 3 – Basic Update
+sudo apt update
+sudo apt upgrade -y
+________________________________________
+1.	Script Banane Ka Tarika
+nano test.sh
+Script likho:
+#!/bin/bash
+
+echo "Hello Bash Scripting"
+Save:
+CTRL + O
+ENTER
+CTRL + X
+Permission do:
+chmod +x test.sh
+Run:
+./test.sh
+________________________________________
+2.	Variables
+Variable ek container hota hai jo value store karta hai taa ke hum us value ko baar baar use kar saken.
+Example:
+#!/bin/bash
+
+name="Shan"
+Yahan:
+•	name = variable ka naam 
+•	"Shan" = stored value
+Use :
+
+echo "$name"
+Output:
+Shan
+Real DevOps Example
+Proper Bash scripting me normally hum file banate hain.
+Steps:
+nano install.sh
+
+ya file nab hi bnao testing k liye direct bhi likh skty ho 
+
+#!/bin/bash
+
+app_name="nginx"
+
+sudo apt install $app_name -y
+Permission do:
+chmod +x install.sh
+
+run script
+
+./install.sh
+
+nginx ki jagah docker install karna ho:
+app_name="docker.io"
+
+________________________________________
+3.	User Input
+User input is liye lete hain taa ke script har baar different value ke sath kaam kar sake 
+Agar hum value pehle hi script me likh dein:
+name="Shan"
+to script sirf Shan ke liye chalegi.
+Lekin agar user input lein:
+read name
+to har banda apna naam de sakta hai.
+👉 User input ka matlab:
+“User se value lena taa ke script uske according kaam kare.”
+Real Life DevOps Examples
+User Create Karna
+Enter username:
+Admin jo naam dega us naam ka user ban jayega.
+Backup Folder Poochna
+Enter backup path:
+User jis folder ka naam dega uska backup ban jayega.
+Docker Image Name
+Enter image name:
+Different image deploy kar sakte ho without script change.
+Practical
+STEP 1
+File banao:
+nano input.sh
+STEP 2
+Ye script paste karo:
+#!/bin/bash
+
+read -p "Enter your name: " name
+
+echo "Hello $name"
+Save:
+•	CTRL + O 
+•	ENTER 
+•	CTRL + X 
+STEP 3
+Permission do:
+chmod +x input.sh
+STEP 4
+Run karo:
+./input.sh
+Output Example
+Enter your name: Shan
+Hello Shan
+
+________________________________________
+4.	Conditions (if/else)
+Concept:
+Condition true ho to ek kaam.
+False ho to doosra.
+Example:
+#!/bin/bash
+
+read -p "Enter age: " age
+
+if [ $age -ge 18 ]
+then
+  echo "Adult"
+else
+  echo "Minor"
+fi
+Explanation:
+•	-ge = greater than or equal
+•	fi = if ko close krta hai
+practical karte hain.
+STEP 1 — File Banao
+nano age.sh
+STEP 2 — Script Paste Karo
+#!/bin/bash
+
+read -p "Enter age: " age
+
+if [ $age -ge 18 ]
+then
+  echo "Adult"
+else
+  echo "Minor"
+fi
+STEP 3 — Save Karo
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Permission Do
+chmod +x age.sh
+STEP 5 — Script Run Karo
+./age.sh
+Example 1
+Agar tum likho:
+20
+Output:
+Adult
+Example 2
+Agar likho:
+15
+Output:
+Minor
+________________________________________
+5.	Operators
+Operators comparison karte hain.
+Yani:
+👉 do values ko compare karna.
+Example:
+•	10 bara hai 5 se? 
+•	age 18 ke equal hai? 
+•	RAM 2GB se kam hai? 
+Operators Easy Table
+Operator	Meaning
+-eq	equal
+-ne	not equal
+-gt	greater than
+-lt	less than
+-ge	greater/equal
+-le	less/equal
+
+Practical 
+Ab ek script banaty hain.
+STEP 1 — File Banao
+nano operators.sh
+
+STEP 2 — Script Paste Karo
+#!/bin/bash
+
+read -p "Enter first number: " num1
+read -p "Enter second number: " num2
+
+if [ $num1 -eq $num2 ]
+then
+  echo "Both numbers are equal"
+
+elif [ $num1 -gt $num2 ]
+then
+  echo "First number is greater"
+
+else
+  echo "Second number is greater"
+fi
+Script Samjho
+Input
+User 2 numbers dega.
+Example:
+10
+5
+Condition 1
+if [ $num1 -eq $num2 ]
+Check:
+ dono equal hain?
+Condition 2
+elif [ $num1 -gt $num2 ]
+Check:
+ first number bara hai?
+Else
+Agar dono conditions false:
+ second number bara hoga.
+STEP 3 — Save
+•	CTRL + O 
+•	ENTER 
+•	CTRL + X 
+STEP 4 — Permission
+chmod +x operators.sh
+STEP 5 — Run
+./operators.sh
+Example Outputs
+Example 1
+Input:
+10
+10
+Output:
+Both numbers are equal
+Example 2
+Input:
+20
+10
+Output:
+First number is greater
+Example 3
+Input:
+5
+20
+Output:
+Second number is greater
+
+Aysy  hi hm script file edit kr k 2sry operators ki bhu practice completed hai alhamdulillah.
+
+________________________________________
+6.	Loops
+Loops Kya Hotay Hain?
+Loop ka matlab hota hai:
+👉 “Ek hi kaam ko baar baar repeat karna”
+Real Life Example
+•	5 users create karne hain
+•	100 logs check karne hain
+•	10 servers pe same command chalani hai
+👉 bar bar same code likhne ki zarurat nahi → loop use hota hai
+ FOR LOOP
+Concept
+👉 Jab hume pehle se pata ho kitni dafa kaam karna hai
+Script
+#!/bin/bash
+
+for i in 1 2 3 4 5
+do
+  echo "Number: $i"
+done
+Samajh
+•	for i in 1 2 3 4 5
+👉 i ki value 1 se 5 tak jayegi
+•	echo "Number: $i"
+👉 har value print hogi
+Output
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+WHILE LOOP
+Concept
+👉 Jab tak condition TRUE hai tab tak repeat hota rahe
+Script
+#!/bin/bash
+
+count=1
+
+while [ $count -le 5 ]
+do
+  echo $count
+  count=$((count+1))
+done
+Samajh
+1️⃣
+count=1
+starting value
+2️⃣
+while [ $count -le 5 ]
+👉 jab tak count 5 se chota ya equal hai
+3️⃣
+count=$((count+1))
+👉 har loop ke baad 1 increase
+Output
+1
+2
+3
+4
+5
+FOR vs WHILE
+FOR LOOP	WHILE LOOP
+fixed range	condition based
+known times	unknown times
+simple	Flexible
+Practical Task
+🔥 PRACTICAL 1 — FOR LOOP
+STEP 1 — File banao
+nano forloop.sh
+STEP 2 — Script likho
+#!/bin/bash
+
+for i in nginx docker git
+do
+  echo "Installing $i"
+done
+👉 Save:
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 3 — Permission do
+chmod +x forloop.sh
+STEP 4 — Run karo
+./forloop.sh
+OUTPUT
+Installing nginx
+Installing docker
+Installing git
+🔥 PRACTICAL 2 — WHILE LOOP
+STEP 1 — File banao
+nano whileloop.sh
+STEP 2 — Script likho
+#!/bin/bash
+
+count=1
+
+while [ $count -le 5 ]
+do
+  echo "Server check $count"
+  count=$((count+1))
+done
+STEP 3 — Save karo
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Permission do
+chmod +x whileloop.sh
+STEP 5 — Run karo
+./whileloop.sh
+OUTPUT
+Server check 1
+Server check 2
+Server check 3
+Server check 4
+Server check 5
+💡 EASY UNDERSTANDING
+FOR LOOP:
+👉 fixed list pe kaam karta hai
+(nginx, docker, git)
+WHILE LOOP:
+👉 condition true hone tak chalta hai
+(count 1 se 5 tak)
+🔥 DEVOPS CONNECTION
+Ye real use hota hai:
+FOR LOOP:
+•	multiple packages install
+•	multiple servers commands
+•	bulk operations
+WHILE LOOP:
+•	monitoring scripts
+•	health checks
+•	retry logic
+•	continuous checking
+________________________________________
+7.	Functions
+Function ka matlab:
+👉 “Ek aisa block of code jo hum baar baar use kar sakte hain”
+Simple Example Samjho
+Agar tumhe 5 dafa nginx install karna ho:
+❌ har dafa same commands likhna
+✅ function bana do aur bar bar call karo
+🔥 FUNCTION SYNTAX
+function_name() {
+  commands
+}
+🚀 PRACTICAL STEP-BY-STEP
+STEP 1 — File banao
+nano function.sh
+STEP 2 — Script likho
+#!/bin/bash
+
+install_nginx() {
+  echo "Updating system..."
+  sudo apt update -y
+
+  echo "Installing nginx..."
+  sudo apt install nginx -y
+
+  echo "Starting nginx..."
+  sudo systemctl start nginx
+}
+
+install_nginx
+STEP 3 — Save karo
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Permission do
+chmod +x function.sh
+STEP 5 — Run karo
+./function.sh
+OUTPUT (expected)
+Updating system...
+Installing nginx...
+Starting nginx...
+🧠 Line by Line Samajh
+Function define
+install_nginx() {
+👉 function ka naam: install_nginx
+Commands inside function
+sudo apt install nginx -y
+👉 actual kaam yahan ho raha hai
+Function call
+install_nginx
+👉 yahan function run hota hai
+💡 DevOps Me Functions Kahan Use Hote Hain?
+🔥 Real world:
+•	nginx install function
+•	docker setup function
+•	backup function
+•	log cleanup function
+•	health check function
+•	user creation function
+⚠️ IMPORTANT POINT
+👉 Function tab powerful hota hai jab tum usko multiple times reuse karo
+🔥 FINAL SIMPLE LINE
+👉 Function = “Code ka reusable box”
+________________________________________ 7. Arguments
+Arguments ka matlab:
+👉 “Script ko run karte waqt usko values pass karna”
+Yani tum script ke andar hardcode nahi karte, balkay run time pe values dete ho.
+Simple Samajh Lo
+❌ Hardcoded:
+name="DevOps"
+✅ Argument:
+./test.sh DevOps AWS
+🔥 PRACTICAL STEP-BY-STEP
+Practical 1 ( for two arguments)
+STEP 1 — File banao
+nano test.sh
+STEP 2 — Script likho
+#!/bin/bash
+
+echo "First argument: $1"
+echo "Second argument: $2"
+STEP 3 — Save karo
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Permission do
+chmod +x test.sh
+STEP 5 — Run script with arguments
+./test.sh DevOps AWS
+OUTPUT
+First argument: DevOps
+Second argument: AWS
+
+Practical 2 ( all and total arguments )
+
+STEP 1 — File banao
+nano allargs.sh
+STEP 2 — Script likho
+#!/bin/bash
+
+echo "All arguments: $@"
+echo "Total arguments: $#"
+STEP 3 — Save
+•	CTRL + O 
+•	ENTER 
+•	CTRL + X 
+STEP 4 — Permission
+chmod +x allargs.sh
+STEP 5 — Run
+./allargs.sh DevOps AWS Docker Linux
+OUTPUT
+All arguments: DevOps AWS Docker Linux
+Total arguments: 4
+💡 REAL DEVOPS USE
+Arguments bohat use hotay hain:
+User creation
+./user.sh shan admin
+Docker deployment
+./deploy.sh nginx 80
+Backup script
+./backup.sh /var/log /backup
+🚀 FINAL SIMPLE LINE
+👉 Arguments = “Script ko run time pe data dena”
+________________________________________
+Important Linux Commands in Bash
+🧠 1. grep (Search Text)
+👉 file ke andar text search karta hai
+STEP 1 — file banao
+nano logs.txt
+STEP 2 — data likho
+error server down
+success deployment done
+error disk full
+save karo.
+STEP 3 — search command
+grep "error" logs.txt
+OUTPUT
+error server down
+error disk full
+👉 "error" wali lines show ho gayi
+🧠 2. awk (Column Processing)
+👉 text ko columns me divide karta hai
+STEP 1
+nano users.txt
+STEP 2
+Shan DevOps 25
+Ali AWS 30
+Ahmed Linux 28
+STEP 3
+awk '{print $1}' users.txt
+OUTPUT
+Shan
+Ali
+Ahmed
+👉 sirf first column print hua
+🧠 3. sed (Replace Text)
+👉 text replace karta hai
+STEP 1
+echo "nginx server running" > app.txt
+STEP 2
+sed 's/nginx/apache/g' app.txt
+OUTPUT
+apache server running
+👉 nginx → apache replace ho gaya
+🧠 4. cut (Extract Part)
+👉 text ka specific part nikalta hai
+STEP 1
+echo "Shan:DevOps:25" > data.txt
+STEP 2
+cut -d ":" -f1 data.txt
+OUTPUT
+Shan
+👉 -d ":" = separator
+👉 -f1 = first field
+🧠 5. find (Search Files)
+👉 files locate karta hai
+COMMAND
+find /home -name "logs.txt"
+👉 home directory me file search karega
+🧠 6. df -h (Disk Usage)
+👉 disk space check karta hai
+COMMAND
+df -h
+OUTPUT
+•	total disk
+•	used space
+•	free space
+👉 DevOps me server storage monitor karte hain
+🧠 7. free -m (Memory Usage)
+👉 RAM check karta hai
+COMMAND
+free -m
+👉 MB me RAM show hoti hai
+🧠 8. top (Live Processes)
+👉 real time CPU/RAM usage
+COMMAND
+top
+👉 press q to exit
+🧠 9. ps aux (Process List)
+👉 all running processes show karta hai
+COMMAND
+ps aux
+Example filter (DevOps use)
+ps aux | grep nginx
+👉 sirf nginx process show hoga
+🚀 REAL DEVOPS CONNECTION
+Command	Use
+grep	logs error find
+awk	report generate
+sed	config modify
+cut	data extract
+find	file locate
+df -h	disk monitoring
+free -m	memory check
+top	performance check
+ps aux	process debugging
+
+🔥 FINAL REALITY
+👉 Ye commands Bash scripting ka backbone hain
+👉 DevOps engineer inko combine karke automation banata hai
+Example:
+ps aux | grep nginx
+df -h
+free -m
+💡 IMPORTANT TIP
+👉 Interview me sirf command nahi poochte
+👉 wo kehte hain:
+“Server slow hai, kaise troubleshoot karo?”
+👉 tum ye commands use karte ho 
+________________________________________
+PROJECT 1 – NGINX AUTO INSTALLER
+Goal:
+•	nginx install
+•	start service
+•	enable service
+•	status check
+file bnao 
+nano nginx.sh
+Script:
+#!/bin/bash
+
+echo "Updating server"
+sudo apt update -y
+
+echo "Installing nginx"
+sudo apt install nginx -y
+
+echo "Starting nginx"
+sudo systemctl start nginx
+
+sudo systemctl enable nginx
+
+echo "Checking status"
+sudo systemctl status nginx
+Run:
+chmod +x nginx.sh
+./nginx.sh
+Interview Explanation:
+"Ye script automatically nginx install karti hai aur service ko start + enable karti hai."
+________________________________________
+PROJECT 2 – SERVER HEALTH MONITORING
+MOST IMPORTANT PROJECT 🔥
+Real DevOps me bohat use hota hai.
+File bnao 
+nano healthcheck.sh
+Script:
+#!/bin/bash
+
+echo "===== SERVER HEALTH ====="
+
+echo "CPU LOAD"
+uptime
+
+echo "MEMORY USAGE"
+free -m
+
+echo "DISK USAGE"
+df -h
+
+echo "RUNNING PROCESSES"
+ps aux --sort=-%mem | head
+
+
+Run:
+chmod +x healthcheck.sh
+./healthcheck.sh
+Purpose:
+•	CPU check
+•	Memory check
+•	Disk check
+•	Heavy processes check
+________________________________________
+PROJECT 3 – AUTOMATIC BACKUP SCRIPT
+Goal:
+•	logs backup
+•	zip file create
+•	date wise backup
+🧠 Script Ko Simple Samjho
+#!/bin/bash
+👉 bash scripting use karo
+backup_dir="/home/ubuntu/backups"
+👉 backup kis folder me save hoga
+source_dir="/var/log"
+👉 kis folder ka backup lena hai
+Linux logs mostly:
+/var/log
+me hoti hain.
+date=$(date +%Y-%m-%d)
+👉 current date store ho rahi hai
+Example:
+2026-05-09
+mkdir -p $backup_dir
+👉 backup folder agar nahi hai to create karo
+-p
+means:
+👉 safely create
+tar -czvf $backup_dir/logs-$date.tar.gz $source_dir
+🔥 MOST IMPORTANT LINE
+Meaning:
+👉 logs ko compress karke backup file banao
+Example output file:
+logs-2026-05-09.tar.gz
+🧠 tar Options Meaning
+Option	Meaning
+-c	create archive
+-z	gzip compress
+-v	verbose (details show)
+-f	Filename
+
+echo "Backup completed"
+👉 success message
+🚀 STEP-BY-STEP PRACTICAL
+STEP 1 — File banao
+nano backup.sh
+STEP 2 — Script paste karo
+#!/bin/bash
+
+backup_dir="/home/ubuntu/backups"
+source_dir="/var/log"
+
+date=$(date +%Y-%m-%d)
+
+mkdir -p $backup_dir
+
+tar -czvf $backup_dir/logs-$date.tar.gz $source_dir
+
+echo "Backup completed"
+STEP 3 — Save
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Permission do
+chmod +x backup.sh
+STEP 5 — Run script
+./backup.sh
+OUTPUT
+Tumhe bohat sari files show hongi because:
+👉 /var/log compress ho raha hota hai
+Last me:
+Backup completed
+STEP 6 — Backup check karo
+ls /home/ubuntu/backups
+Expected Output
+logs-2026-05-09.tar.gz
+
+🔥 PRACTICAL — Laptop → Server1 PEM Upload → Server1 Se Server2 Backup Transfer
+🔥 STEP 1 — Laptop Me Downloads Folder Open
+CMD / PowerShell:
+cd Downloads
+🔥 STEP 2 — Check PEM File
+dir
+Check:
+2026key.pem
+visible honi chahiye.
+🔥 STEP 3 — PEM Key Server1 Pe Upload
+scp -i 2026key.pem 2026key.pem ubuntu@SERVER1-IP:/home/ubuntu/
+Example:
+scp -i 2026key.pem 2026key.pem ubuntu@54.174.143.41:/home/ubuntu/
+🔥 STEP 4 — Server1 Login
+PuTTY / SSH se Server1 open karo.
+🔥 STEP 5 — Check PEM File
+ls /home/ubuntu
+Expected:
+2026key.pem
+🔥 STEP 6 — PEM Permission Fix
+chmod 400 /home/ubuntu/2026key.pem
+🔥 STEP 7 — Backup Folder Check
+ls /home/ubuntu/backups
+Expected:
+logs-2026-05-09.tar.gz
+🔥 STEP 8 — Server1 Se Server2 Backup Transfer
+scp -i /home/ubuntu/2026key.pem /home/ubuntu/backups/logs-2026-05-09.tar.gz ubuntu@SERVER2-IP:/home/ubuntu/
+Example:
+scp -i /home/ubuntu/2026key.pem /home/ubuntu/backups/logs-2026-05-09.tar.gz ubuntu@34.201.130.31:/home/ubuntu/
+🔥 STEP 9 — First Time Connection
+Agar aaye:
+Are you sure you want to continue connecting
+Type:
+yes
+🔥 STEP 10 — Successful Transfer
+Expected:
+logs-2026-05-09.tar.gz 100%
+🔥 STEP 11 — Server2 Login
+PuTTY / SSH se Server2 open karo.
+🔥 STEP 12 — Backup Verify
+ls /home/ubuntu
+Expected:
+logs-2026-05-09.tar.gz
+🔥 Backup successfully transfer ho gaya 🙂
+________________________________________
+PROJECT 4 – USER CREATION AUTOMATION
+Use
+Ye script:
+👉 automatically Linux user create karti hai.
+DevOps/System Admin multiple users manually banane ke bajaye automation use karte hain taa ke:
+•	time bachy
+•	mistakes kam hon
+•	fast administration ho 
+ STEP-BY-STEP PRACTICAL
+STEP 1 — File Banao
+nano usercreate.sh
+STEP 2 — Script Paste Karo
+#!/bin/bash
+
+read -p "Enter username: " username
+
+sudo useradd $username
+
+sudo passwd $username
+
+echo "User created successfully"
+STEP 3 — Save Karo
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Permission Do
+chmod +x usercreate.sh
+STEP 5 — Script Run Karo
+./usercreate.sh
+STEP 6 — Username Enter Karo
+Example:
+shan
+STEP 7 — Password Set Karo
+System kahega:
+New password:
+Password type karo.
+Phir:
+Retype new password:
+Dobara same password.
+⚠️ Password type karte waqt screen pe kuch show nahi hota — ye normal hai.
+STEP 8 — Success Message
+Expected:
+User created successfully
+🔥 STEP 9 — Verify User
+cat /etc/passwd | grep shan
+Agar output aaye:
+✅ user successfully create ho gaya 
+________________________________________
+PROJECT 5 – DOCKER DEPLOYMENT SCRIPT
+prerequisites setup
+Real DevOps me pehle prerequisites setup karte hain phir deployment automation.
+1️. Git install
+2️. Docker install
+3️. Simple Docker project create
+🔥 PART 1 — GIT INSTALLATION
+STEP 1 — Package Update
+sudo apt update
+STEP 2 — Git Install
+sudo apt install git -y
+STEP 3 — Verify Git
+git --version
+Expected:
+git version ...
+✅ Git installed.
+🔥 PART 2 — DOCKER INSTALLATION
+STEP 1 — Docker Install
+sudo apt install docker.io -y
+STEP 2 — Docker Start
+sudo systemctl start docker
+STEP 3 — Docker Enable
+sudo systemctl enable docker
+STEP 4 — Verify Docker
+docker --version
+Expected:
+Docker version ...
+STEP 5 — Docker Status Check
+sudo systemctl status docker
+Agar:
+active (running)
+aaye:
+✅ Docker running.
+Press:
+q
+to exit.
+🔥 PART 3 — SIMPLE DOCKER PROJECT
+STEP 1 — Project Folder
+mkdir myapp
+STEP 2 — Folder Me Jao
+cd myapp
+STEP 3 — HTML File Banao
+nano index.html
+Paste:
+<h1>Hello DevOps Docker</h1>
+Save:
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+STEP 4 — Dockerfile Banao
+nano Dockerfile
+Paste:
+FROM nginx:latest
+
+COPY index.html /usr/share/nginx/html/index.html
+🧠 Simple Meaning
+Line	Purpose
+FROM nginx	nginx base image
+COPY	HTML file container me copy
+
+STEP 5 — Docker Image Build
+docker build -t myapp .
+STEP 6 — Check Images
+docker images
+Expected:
+✅ myapp
+STEP 7 — Container Run
+docker run -d -p 80:80 --name mycontainer myapp
+STEP 8 — Check Running Container
+docker ps
+Expected:
+✅ mycontainer
+STEP 9 — Browser Check
+Open:
+http://YOUR-SERVER-IP
+Expected:
+Hello DevOps Docker
+OPTIONAL TEST (Server Se)
+Ubuntu pe putty mn:
+curl localhost:8080
+Expected:
+<h1>Hello DevOps Docker</h1>
+🔥 Means:
+simple Docker project successfully chal gaya 
+🔥 STEP 4 — Deployment Script Banao
+nano deploy.sh
+🔥 STEP 5 — Script Paste Karo
+#!/bin/bash
+
+echo "Building docker image"
+docker build -t myapp .
+
+echo "Stopping old container"
+docker stop mycontainer
+
+docker rm mycontainer
+
+echo "Starting new container"
+docker run -d -p 80:80 --name mycontainer myapp
+🔥 STEP 6 — Save
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+🔥 STEP 7 — Permission Do
+chmod +x deploy.sh
+🔥 STEP 8 — Run Script
+./deploy.sh
+🔥 STEP 9 — Check Container
+docker ps
+Expected:
+✅ mycontainer running
+🔥 STEP 10 — Browser Check
+Browser me:
+http://SERVER-IP
+Expected:
+Hello DevOps Docker
+🧠 Script Simple Understanding
+Command	Purpose
+docker build	new image build
+docker stop	old container stop
+docker rm	old container delete
+docker run	new container start
+
+🔥 REAL DEVOPS CONNECTION
+Ye same concept:
+•	Jenkins
+•	CI/CD
+•	Kubernetes
+•	production deployments use hota hai 
+💡 REAL INDUSTRY FLOW
+Developer Push Code
+        ↓
+GitHub
+        ↓
+Jenkins Trigger
+        ↓
+Docker Build
+        ↓
+Container Restart
+        ↓
+New Version Live
+🔥 Ye actual DevOps deployment flow hai 
+________________________________________
+Cron Jobs (Automation)
+Perfect 🔥
+Cron Jobs Bash scripting + Linux automation ka bohat important part hain.
+Cron Job:
+👉 Linux ka automatic scheduler hota hai.
+Yani:
+•	specific time pe
+•	automatically
+•	koi script ya command run karwana
+🚀 PRACTICAL STEP-BY-STEP
+🔥 STEP 1 — Backup Script Check
+Check file:
+ls /home/ubuntu
+Expected:
+backup.sh
+🔥 STEP 2 — Permission Check
+chmod +x /home/ubuntu/backup.sh
+🔥 STEP 3 — Cron Open
+crontab -e
+🔥 STEP 4 — First Time Option
+Agar option aaye:
+Select editor
+Choose:
+nano
+Mostly:
+1
+🔥 STEP 5 — Test Cron Add
+Paste:
+* * * * * /home/ubuntu/backup.sh
+🧠 Meaning
+Symbol	Meaning
+1st *	minute
+2nd *	hour
+3rd *	day
+4th *	month
+5th *	weekday
+
+💡 Current Cron
+* * * * *
+Meaning:
+👉 every minute run karo
+🔥 STEP 6 — Save
+•	CTRL + O
+•	ENTER
+•	CTRL + X
+🔥 STEP 7 — Verify Cron
+crontab -l
+Expected:
+* * * * * /home/ubuntu/backup.sh
+🔥 STEP 8 — Wait 1 Minute
+Cron automatically script run karega 🙂
+🔥 STEP 9 — Check Backup Folder
+ls /home/ubuntu/backups
+Agar new backup file aaye:
+✅ Cron successfully kaam kar raha hai.
+🔥 REAL PRODUCTION EXAMPLE
+Roz 1 AM backup:
+0 1 * * * /home/ubuntu/backup.sh
+🧠 Meaning
+Value	Meaning
+0	minute
+1	hour
+*	every day
+👉 Daily 1:00 AM
+💡 IMPORTANT REALITY
+Real companies me:
+•	backups
+•	monitoring
+•	cleanup
+•	reports
+mostly:
+🔥 cron jobs se automate hoti hain 
+________________________________________
+Exit Status
+Linux/Bash me:
+👉 har command run hone ke baad ek result return karti hai.
+Usko:
+exit status
+kehte hain.
+🔥 Meaning
+Value	Meaning
+0	command successful
+non-zero	error/problem
+Practical step by step
+Step 1
+Agar command successful:
+mkdir test
+Check:
+echo $?
+Output:
+0
+Meaning:
+✅ command successful.
+Step 2
+cd wrongfolder
+Ab:
+echo $?
+Expected:
+1
+ya koi non-zero number.
+Meaning:
+❌ error ayi.
+🧠 Real DevOps Use
+Bash scripts me:
+👉 check karte hain command successful hui ya nahi.
+Example:
+mkdir backup
+
+if [ $? -eq 0 ]
+then
+  echo "Success"
+else
+  echo "Failed"
+fi
+🔥 Meaning
+Agar:
+mkdir
+successful:
+👉 Success
+warna:
+👉 Failed
+________________________________________
+DevOps Real World Bash Use Cases
+Use Case	                                Purpose
+Deployment scripts	                                      automate deployments
+Backup scripts	                                      automatic backups
+Monitoring scripts	                                      server monitoring
+Cleanup scripts	                                      logs cleanup
+Jenkins scripts	                                      CI/CD automation
+Docker automation	                                      container deployment
+AWS automation	                                      EC2 management
+________________________________________
+Interview Questions
+1. Bash scripting kya hai?
+Bash scripting Linux commands ko automate karne ka tarika hai.
+2. Shebang kya hota hai?
+#!/bin/bash
+System ko batata hai ke bash interpreter use karna hai.
+3. chmod +x kya karta hai?
+Script ko executable permission deta hai.
+4. Cron job kya hoti hai?
+Automatic scheduled task.
+5. grep command ka use?
+Text search.
+6. Bash scripting DevOps me kaha use hoti hai?
+•	automation
+•	monitoring
+•	deployments
+•	backups
+•	CI/CD
+________________________________________

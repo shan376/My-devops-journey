@@ -1,0 +1,222 @@
+# 📌 Commands Used in Bash Scripting Notes (Complete List)
+
+## Basic Linux / Setup Commands
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+ssh -i key.pem ubuntu@PUBLIC-IP
+scp -i 2026key.pem 2026key.pem ubuntu@SERVER1-IP:/home/ubuntu/
+scp -i /home/ubuntu/2026key.pem /home/ubuntu/backups/logs-2026-05-09.tar.gz ubuntu@SERVER2-IP:/home/ubuntu/
+```
+
+---
+
+## File / Directory Commands
+
+```bash
+nano test.sh
+nano input.sh
+nano age.sh
+nano operators.sh
+nano forloop.sh
+nano whileloop.sh
+nano function.sh
+nano nginx.sh
+nano healthcheck.sh
+nano backup.sh
+nano usercreate.sh
+nano deploy.sh
+nano logs.txt
+nano users.txt
+nano app.txt
+nano data.txt
+nano index.html
+nano Dockerfile
+mkdir myapp
+mkdir test
+mkdir -p $backup_dir
+ls
+ls /home/ubuntu
+ls /home/ubuntu/backups
+cd Downloads
+cd myapp
+cat /etc/passwd
+```
+
+---
+
+## Script Permissions & Execution
+
+```bash
+chmod +x test.sh
+chmod +x input.sh
+chmod +x age.sh
+chmod +x operators.sh
+chmod +x forloop.sh
+chmod +x whileloop.sh
+chmod +x function.sh
+chmod +x nginx.sh
+chmod +x healthcheck.sh
+chmod +x backup.sh
+chmod +x usercreate.sh
+chmod +x deploy.sh
+chmod 400 /home/ubuntu/2026key.pem
+
+./test.sh
+./input.sh
+./age.sh
+./operators.sh
+./forloop.sh
+./whileloop.sh
+./function.sh
+./nginx.sh
+./healthcheck.sh
+./backup.sh
+./usercreate.sh
+./deploy.sh
+```
+
+---
+
+## User / System Commands
+
+```bash
+sudo useradd $username
+sudo passwd $username
+sudo apt install nginx -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+sudo systemctl status nginx
+```
+
+---
+
+## Package Installation Commands
+
+```bash
+sudo apt install git -y
+sudo apt install docker.io -y
+git --version
+docker --version
+```
+
+---
+
+## Process / System Monitoring Commands
+
+```bash
+uptime
+free -m
+df -h
+ps aux
+ps aux --sort=-%mem | head
+top
+ps aux | grep nginx
+```
+
+---
+
+## Text Processing Commands
+
+```bash
+grep "error" logs.txt
+awk '{print $1}' users.txt
+sed 's/nginx/apache/g' app.txt
+cut -d ":" -f1 data.txt
+find /home -name "logs.txt"
+```
+
+---
+
+## Docker Commands
+
+```bash
+docker build -t myapp .
+docker images
+docker run -d -p 80:80 --name mycontainer myapp
+docker ps
+docker stop mycontainer
+docker rm mycontainer
+```
+
+---
+
+## Git Commands
+
+```bash
+git --version
+```
+
+---
+
+## Cron & Scheduling Commands
+
+```bash
+crontab -e
+crontab -l
+```
+
+---
+
+## Archive / Backup Commands
+
+```bash
+tar -czvf $backup_dir/logs-$date.tar.gz $source_dir
+```
+
+---
+
+## Variable / Input / Output Commands (Bash Internal)
+
+```bash
+echo "Hello DevOps"
+echo "$name"
+read name
+read -p "Enter your name: " name
+read -p "Enter age: " age
+read -p "Enter first number: " num1
+read -p "Enter second number: " num2
+echo $1
+echo $2
+echo $@
+echo $#
+echo $?
+```
+
+---
+
+## Condition / Logic Commands
+
+```bash
+if [ $age -ge 18 ]
+if [ $num1 -eq $num2 ]
+if [ $num1 -gt $num2 ]
+```
+
+---
+
+## Networking / Connection Commands
+
+```bash
+curl localhost:8080
+```
+
+---
+
+## Exit Status Check
+
+```bash
+echo $?
+```
+
+---
+
+## AWS / Server Commands (Setup Section)
+
+```bash
+ssh -i key.pem ubuntu@PUBLIC-IP
+```
+
+---
+
